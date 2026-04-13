@@ -6,9 +6,10 @@ import java.util.List;
 import com.legislacr.rh.legislarh.DTOs.PlanillaDTO;
 
 public class PlanillaEmpleado {
+    private int idEmpleado;
     private LocalDate fechaInicioPeriodo;
     private LocalDate fechaFinPeriodo;
-    private int salarioBase;
+    private float salarioBase;
     private String tipoDeSalario;
     private int cantidadDiasAusente;
     private float cantidadHorasAusente;
@@ -19,11 +20,19 @@ public class PlanillaEmpleado {
     private List<LocalDate> diasIncapacitado;
     private boolean esCasado;
     private int cantidadHijos;
-
+    
     public PlanillaEmpleado() {
     }
-    
-    //TODO: manejo de excepciones personalizado
+
+    // TODO: manejo de excepciones personalizado
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
 
     public LocalDate getFechaInicioPeriodo() {
         return fechaInicioPeriodo;
@@ -41,11 +50,11 @@ public class PlanillaEmpleado {
         this.fechaFinPeriodo = fechaFinPeriodo;
     }
 
-    public int getSalarioBase() {
+    public float getSalarioBase() {
         return salarioBase;
     }
 
-    public void setSalarioBase(int salarioBase) {
+    public void setSalarioBase(float salarioBase) {
         this.salarioBase = salarioBase;
     }
 
@@ -129,25 +138,25 @@ public class PlanillaEmpleado {
         this.cantidadHijos = cantidadHijos;
     }
 
-    public PlanillaDTO PlanillaADto(PlanillaEmpleado planillaEmpleado){
+    public PlanillaDTO PlanillaADto(PlanillaEmpleado planillaEmpleado) {
         return new PlanillaDTO(
-            fechaInicioPeriodo = planillaEmpleado.getFechaInicioPeriodo(),
-            fechaFinPeriodo = planillaEmpleado.getFechaFinPeriodo(),
-            salarioBase = planillaEmpleado.getSalarioBase(),
-            tipoDeSalario = planillaEmpleado.getTipoDeSalario(),
-            cantidadDiasAusente = planillaEmpleado.getCantidadDiasAusente(),
-            cantidadHorasAusente = planillaEmpleado.getCantidadHorasAusente(),
-            cantidadDiasVacaciones = planillaEmpleado.getCantidadDiasVacaciones(),
-            diasVacaciones = planillaEmpleado.getDiasVacaciones(),
-            cantidadDiasIncapacitado = planillaEmpleado.getCantidadDiasIncapacitado(),
-            entidadIncapacidad = planillaEmpleado.getEntidadIncapacidad(),
-            diasIncapacitado = planillaEmpleado.getDiasIncapacitado(),
-            esCasado = planillaEmpleado.isEsCasado(),
-            cantidadHijos = planillaEmpleado.getCantidadHijos()
-        );
+                idEmpleado = planillaEmpleado.getIdEmpleado(),
+                fechaInicioPeriodo = planillaEmpleado.getFechaInicioPeriodo(),
+                fechaFinPeriodo = planillaEmpleado.getFechaFinPeriodo(),
+                salarioBase = planillaEmpleado.getSalarioBase(),
+                tipoDeSalario = planillaEmpleado.getTipoDeSalario(),
+                cantidadDiasAusente = planillaEmpleado.getCantidadDiasAusente(),
+                cantidadHorasAusente = planillaEmpleado.getCantidadHorasAusente(),
+                cantidadDiasVacaciones = planillaEmpleado.getCantidadDiasVacaciones(),
+                diasVacaciones = planillaEmpleado.getDiasVacaciones(),
+                cantidadDiasIncapacitado = planillaEmpleado.getCantidadDiasIncapacitado(),
+                entidadIncapacidad = planillaEmpleado.getEntidadIncapacidad(),
+                diasIncapacitado = planillaEmpleado.getDiasIncapacitado(),
+                esCasado = planillaEmpleado.isEsCasado(),
+                cantidadHijos = planillaEmpleado.getCantidadHijos());
     }
 
-    public PlanillaEmpleado deDtoAPlanilla(PlanillaDTO dto){
+    public PlanillaEmpleado deDtoAPlanilla(PlanillaDTO dto) {
         setFechaInicioPeriodo(dto.fechaInicioPeriodo());
         setFechaFinPeriodo(dto.fechaFinPeriodo());
         setSalarioBase(dto.salarioBase());
@@ -168,9 +177,10 @@ public class PlanillaEmpleado {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + idEmpleado;
         result = prime * result + ((fechaInicioPeriodo == null) ? 0 : fechaInicioPeriodo.hashCode());
         result = prime * result + ((fechaFinPeriodo == null) ? 0 : fechaFinPeriodo.hashCode());
-        result = prime * result + salarioBase;
+        result = prime * result + Float.floatToIntBits(salarioBase);
         result = prime * result + ((tipoDeSalario == null) ? 0 : tipoDeSalario.hashCode());
         result = prime * result + cantidadDiasAusente;
         result = prime * result + Float.floatToIntBits(cantidadHorasAusente);
@@ -193,6 +203,8 @@ public class PlanillaEmpleado {
         if (getClass() != obj.getClass())
             return false;
         PlanillaEmpleado other = (PlanillaEmpleado) obj;
+        if (idEmpleado != other.idEmpleado)
+            return false;
         if (fechaInicioPeriodo == null) {
             if (other.fechaInicioPeriodo != null)
                 return false;
@@ -203,7 +215,7 @@ public class PlanillaEmpleado {
                 return false;
         } else if (!fechaFinPeriodo.equals(other.fechaFinPeriodo))
             return false;
-        if (salarioBase != other.salarioBase)
+        if (Float.floatToIntBits(salarioBase) != Float.floatToIntBits(other.salarioBase))
             return false;
         if (tipoDeSalario == null) {
             if (other.tipoDeSalario != null)
@@ -258,6 +270,5 @@ public class PlanillaEmpleado {
                 + getDiasIncapacitado() + ", isEsCasado()=" + isEsCasado() + ", getCantidadHijos()="
                 + getCantidadHijos() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
     }
-    
 
 }

@@ -3,8 +3,7 @@ package com.legislacr.rh.legislarh.DTOs;
 import java.time.LocalDate;
 import java.util.List;
 
-public record PlanillaDTO(
-    int idEmpleado,
+public record RespuestaPlanillaDTO(int idEmpleado,
     LocalDate fechaInicioPeriodo,
     LocalDate fechaFinPeriodo,
     float salarioBase,
@@ -16,8 +15,7 @@ public record PlanillaDTO(
     int cantidadDiasIncapacitado,
     String entidadIncapacidad,
     List<LocalDate> diasIncapacitado,
-    boolean esCasado,
-    int cantidadHijos
-) {
+    float salarioParaPagar
+){
 
 }
