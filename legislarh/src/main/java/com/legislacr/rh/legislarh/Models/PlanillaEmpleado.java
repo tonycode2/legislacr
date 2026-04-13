@@ -153,5 +153,101 @@ public class PlanillaEmpleado {
         this.cantidadHijos = cantidadHijos;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((fechaInicioPeriodo == null) ? 0 : fechaInicioPeriodo.hashCode());
+        result = prime * result + ((fechaFinPeriodo == null) ? 0 : fechaFinPeriodo.hashCode());
+        result = prime * result + salarioBase;
+        result = prime * result + ((tipoDeSalario == null) ? 0 : tipoDeSalario.hashCode());
+        result = prime * result + cantidadDiasAusente;
+        result = prime * result + Float.floatToIntBits(cantidadHorasAusente);
+        result = prime * result + cantidadDiasVacaciones;
+        result = prime * result + ((diasVacaciones == null) ? 0 : diasVacaciones.hashCode());
+        result = prime * result + cantidadDiasIncapacitado;
+        result = prime * result + ((entidadIncapacidad == null) ? 0 : entidadIncapacidad.hashCode());
+        result = prime * result + ((diasIncapacitado == null) ? 0 : diasIncapacitado.hashCode());
+        result = prime * result + (esCasado ? 1231 : 1237);
+        result = prime * result + cantidadHijos;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        PlanillaEmpleado other = (PlanillaEmpleado) obj;
+        if (fechaInicioPeriodo == null) {
+            if (other.fechaInicioPeriodo != null)
+                return false;
+        } else if (!fechaInicioPeriodo.equals(other.fechaInicioPeriodo))
+            return false;
+        if (fechaFinPeriodo == null) {
+            if (other.fechaFinPeriodo != null)
+                return false;
+        } else if (!fechaFinPeriodo.equals(other.fechaFinPeriodo))
+            return false;
+        if (salarioBase != other.salarioBase)
+            return false;
+        if (tipoDeSalario == null) {
+            if (other.tipoDeSalario != null)
+                return false;
+        } else if (!tipoDeSalario.equals(other.tipoDeSalario))
+            return false;
+        if (cantidadDiasAusente != other.cantidadDiasAusente)
+            return false;
+        if (Float.floatToIntBits(cantidadHorasAusente) != Float.floatToIntBits(other.cantidadHorasAusente))
+            return false;
+        if (cantidadDiasVacaciones != other.cantidadDiasVacaciones)
+            return false;
+        if (diasVacaciones == null) {
+            if (other.diasVacaciones != null)
+                return false;
+        } else if (!diasVacaciones.equals(other.diasVacaciones))
+            return false;
+        if (cantidadDiasIncapacitado != other.cantidadDiasIncapacitado)
+            return false;
+        if (entidadIncapacidad == null) {
+            if (other.entidadIncapacidad != null)
+                return false;
+        } else if (!entidadIncapacidad.equals(other.entidadIncapacidad))
+            return false;
+        if (diasIncapacitado == null) {
+            if (other.diasIncapacitado != null)
+                return false;
+        } else if (!diasIncapacitado.equals(other.diasIncapacitado))
+            return false;
+        if (esCasado != other.esCasado)
+            return false;
+        if (cantidadHijos != other.cantidadHijos)
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanillaEmpleado [fechaInicioPeriodo=" + fechaInicioPeriodo + ", fechaFinPeriodo=" + fechaFinPeriodo
+                + ", salarioBase=" + salarioBase + ", tipoDeSalario=" + tipoDeSalario + ", cantidadDiasAusente="
+                + cantidadDiasAusente + ", cantidadHorasAusente=" + cantidadHorasAusente + ", cantidadDiasVacaciones="
+                + cantidadDiasVacaciones + ", diasVacaciones=" + diasVacaciones + ", cantidadDiasIncapacitado="
+                + cantidadDiasIncapacitado + ", entidadIncapacidad=" + entidadIncapacidad + ", diasIncapacitado="
+                + diasIncapacitado + ", esCasado=" + esCasado + ", cantidadHijos=" + cantidadHijos
+                + ", getFechaInicioPeriodo()=" + getFechaInicioPeriodo() + ", getFechaFinPeriodo()="
+                + getFechaFinPeriodo() + ", getSalarioBase()=" + getSalarioBase() + ", getTipoDeSalario()="
+                + getTipoDeSalario() + ", getClass()=" + getClass() + ", getCantidadDiasAusente()="
+                + getCantidadDiasAusente() + ", getCantidadHorasAusente()=" + getCantidadHorasAusente()
+                + ", getCantidadDiasVacaciones()=" + getCantidadDiasVacaciones() + ", getDiasVacaciones()="
+                + getDiasVacaciones() + ", getCantidadDiasIncapacitado()=" + getCantidadDiasIncapacitado()
+                + ", getEntidadIncapacidad()=" + getEntidadIncapacidad() + ", getDiasIncapacitado()="
+                + getDiasIncapacitado() + ", isEsCasado()=" + isEsCasado() + ", getCantidadHijos()="
+                + getCantidadHijos() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+    }
+
+    
     
 }
