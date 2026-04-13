@@ -22,35 +22,7 @@ public class PlanillaEmpleado {
 
     public PlanillaEmpleado() {
     }
-
-    public PlanillaEmpleado(LocalDate fechaInicioPeriodo,
-            LocalDate fechaFinPeriodo,
-            int salarioBase,
-            String tipoSalario,
-            int cantidadDiasAusente,
-            float cantidadHorasAusente,
-            int cantidadDiasVacaciones,
-            List<LocalDate> diasVacaciones,
-            int cantidadDiasIncapacitado,
-            String entidadIncapacidad,
-            List<LocalDate> diasIncapacitado,
-            boolean esCasado,
-            int cantidadHijos) {
-        this.fechaInicioPeriodo = fechaInicioPeriodo;
-        this.fechaFinPeriodo = fechaFinPeriodo;
-        this.salarioBase = salarioBase;
-        this.tipoDeSalario = tipoSalario;
-        this.cantidadDiasAusente = cantidadDiasAusente;
-        this.cantidadHorasAusente = cantidadHorasAusente;
-        this.cantidadDiasVacaciones = cantidadDiasVacaciones;
-        this.diasVacaciones = diasVacaciones;
-        this.cantidadDiasIncapacitado = cantidadDiasIncapacitado;
-        this.entidadIncapacidad = entidadIncapacidad;
-        this.diasIncapacitado = diasIncapacitado;
-        this.esCasado = esCasado;
-        this.cantidadHijos = cantidadHijos;
-    }
-
+    
     //TODO: manejo de excepciones personalizado
 
     public LocalDate getFechaInicioPeriodo() {
