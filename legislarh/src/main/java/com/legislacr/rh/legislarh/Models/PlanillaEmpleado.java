@@ -3,6 +3,8 @@ package com.legislacr.rh.legislarh.Models;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.legislacr.rh.legislarh.DTOs.PlanillaDTO;
+
 public class PlanillaEmpleado {
     private LocalDate fechaInicioPeriodo;
     private LocalDate fechaFinPeriodo;
@@ -155,6 +157,41 @@ public class PlanillaEmpleado {
         this.cantidadHijos = cantidadHijos;
     }
 
+    public PlanillaDTO PlanillaADto(PlanillaEmpleado planillaEmpleado){
+        return new PlanillaDTO(
+            fechaInicioPeriodo = planillaEmpleado.getFechaInicioPeriodo(),
+            fechaFinPeriodo = planillaEmpleado.getFechaFinPeriodo(),
+            salarioBase = planillaEmpleado.getSalarioBase(),
+            tipoDeSalario = planillaEmpleado.getTipoDeSalario(),
+            cantidadDiasAusente = planillaEmpleado.getCantidadDiasAusente(),
+            cantidadHorasAusente = planillaEmpleado.getCantidadHorasAusente(),
+            cantidadDiasVacaciones = planillaEmpleado.getCantidadDiasVacaciones(),
+            diasVacaciones = planillaEmpleado.getDiasVacaciones(),
+            cantidadDiasIncapacitado = planillaEmpleado.getCantidadDiasIncapacitado(),
+            entidadIncapacidad = planillaEmpleado.getEntidadIncapacidad(),
+            diasIncapacitado = planillaEmpleado.getDiasIncapacitado(),
+            esCasado = planillaEmpleado.isEsCasado(),
+            cantidadHijos = planillaEmpleado.getCantidadHijos()
+        );
+    }
+
+    public PlanillaEmpleado deDtoAPlanilla(PlanillaDTO dto){
+        setFechaInicioPeriodo(dto.fechaInicioPeriodo());
+        setFechaFinPeriodo(dto.fechaFinPeriodo());
+        setSalarioBase(dto.salarioBase());
+        setTipoDeSalario(dto.tipoDeSalario());
+        setCantidadDiasAusente(dto.cantidadDiasAusente());
+        setCantidadHorasAusente(dto.cantidadHorasAusente());
+        setCantidadDiasVacaciones(dto.cantidadDiasVacaciones());
+        setDiasVacaciones(dto.diasVacaciones());
+        setCantidadDiasIncapacitado(dto.cantidadDiasIncapacitado());
+        setEntidadIncapacidad(dto.entidadIncapacidad());
+        setDiasIncapacitado(dto.diasIncapacitado());
+        setEsCasado(dto.esCasado());
+        setCantidadHijos(dto.cantidadHijos());
+        return this;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -249,4 +286,6 @@ public class PlanillaEmpleado {
                 + getDiasIncapacitado() + ", isEsCasado()=" + isEsCasado() + ", getCantidadHijos()="
                 + getCantidadHijos() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
     }
+    
+
 }
