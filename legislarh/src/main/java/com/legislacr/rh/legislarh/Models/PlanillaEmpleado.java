@@ -49,6 +49,8 @@ public class PlanillaEmpleado {
         this.cantidadHijos = cantidadHijos;
     }
 
+    //TODO: manejo de excepciones personalizado
+
     public LocalDate getFechaInicioPeriodo() {
         return fechaInicioPeriodo;
     }
@@ -247,7 +249,4 @@ public class PlanillaEmpleado {
                 + getDiasIncapacitado() + ", isEsCasado()=" + isEsCasado() + ", getCantidadHijos()="
                 + getCantidadHijos() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
     }
-
-    
-    
 }
